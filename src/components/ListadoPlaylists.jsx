@@ -10,7 +10,7 @@ const ListadoPlaylists = () => {
           <table className="w-full">
             <thead className="bg-gray-50 border-b-2 border-gray-200">
             <tr>
-              <th className="p-3 tracking-wide text-xl mb-10 font-bold text-indigo-600">Tus Playlists</th>   
+              <th className="p-3 tracking-wide text-xl mb-10 font-bold text-indigo-600">Playlists</th>   
             </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -30,7 +30,7 @@ const ListadoPlaylists = () => {
     
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
           <div>
-            <h1 className="text-xl font-bold text-indigo-600">Tus playlists</h1>
+            <h1 className="text-xl font-bold text-indigo-600">Playlists</h1>
           </div>
           {playlists.length>0 ? playlists.map(playlist => {
             return(
