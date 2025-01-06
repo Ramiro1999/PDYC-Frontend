@@ -1,4 +1,4 @@
-import {useNavigate } from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
 import useAuth from '../hooks/useAuth';
 import {useState } from "react";
 import Alerta from "../components/Alerta";
@@ -62,7 +62,7 @@ const Login = () => {
 
             <div className="mt-5">
                 <label
-                  className="uppercase text-gray-500 block text-xl font-bold my-3"
+                  className=" text-gray-500 block text-xl font-bold my-3"
                 >
                   Email
                 </label>
@@ -76,7 +76,7 @@ const Login = () => {
             </div>
             <div className="mt-5">
                 <label
-                  className="uppercase text-gray-500 block text-xl font-bold my-3"
+                  className=" text-gray-500 block text-xl font-bold my-3"
                 >
                   Contraseña
                 </label>
@@ -96,6 +96,14 @@ const Login = () => {
               
               />
           </form>
+          
+          <nav className='mt-3 lg:flex lg:justify-between'>
+
+            <Link to="/registrar"
+            className='block text-center my-5 text-gray-500 hover:underline'
+            >¿No tienes una cuenta? <span className='text-indigo-600'>Regístrate!</span></Link>
+
+          </nav>
 
     </div>
   

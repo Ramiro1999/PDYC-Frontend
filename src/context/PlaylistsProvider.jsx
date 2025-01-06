@@ -3,12 +3,13 @@ import clienteAxios from '../config/axios'
 import useAuth from '../hooks/useAuth'
 
 const PlaylistsContext = createContext()
-
+clienteAxios.defaults.withCredentials = true;
 // eslint-disable-next-line react/prop-types
 const PlaylistsProvider = ({children}) => {
 
   const [playlists,setPlaylists] = useState([])
   const {auth} = useAuth();
+
 
   useEffect(() => {
     const obtenerPlaylists = async () => {
@@ -18,11 +19,12 @@ const PlaylistsProvider = ({children}) => {
         if (!token) {
           return;
         }
-  
         const config = {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
+            "User-Email": auth.email
+    
           },
         }
         
