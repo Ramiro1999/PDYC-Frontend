@@ -31,7 +31,7 @@ const Registrar = () => {
       await clienteAxios.post("/user/register", {email,password})
       setAlerta({msg: "Usuario creado correctamente",error: false})
       setTimeout(() => {
-        navigate("/login");
+        navigate("/");
       }, 2000);
     }catch(error){
       setAlerta({msg : error.response.data ,error: true})

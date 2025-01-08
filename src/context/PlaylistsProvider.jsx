@@ -32,7 +32,7 @@ const PlaylistsProvider = ({ children }) => {
       }
     };
     obtenerPlaylists();
-  }, [auth]);
+  }, [auth,playlists]);
 
   const eliminarPlaylist = async (playlistId) => {
     try {
