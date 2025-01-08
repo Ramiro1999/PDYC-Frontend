@@ -7,6 +7,7 @@ import { AuthProvider } from "./context/AuthProvider"
 import RutaProtegida from "./layout/RutaProtegida"
 import AdministrarPlaylists from "./paginas/AdministrarPlaylists"
 import { PlaylistsProvider } from "./context/PlaylistsProvider"
+import EditarPlaylist from "./paginas/EditarPlaylist";
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
             <Route path="/playlists" element={<RutaProtegida/>}>
                   <Route index element={<AdministrarPlaylists/>} />
                   <Route path="crear" element={<CrearPlaylist />} />
+                  <Route path="editar/:id" element={<EditarPlaylist />} />
             </Route>
           </Routes>
         </PlaylistsProvider>
