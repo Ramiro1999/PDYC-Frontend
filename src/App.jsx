@@ -9,6 +9,7 @@ import AdministrarPlaylists from "./paginas/AdministrarPlaylists";
 import { PlaylistsProvider } from "./context/PlaylistsProvider";
 import EditarPlaylist from "./paginas/EditarPlaylist";
 import AdministrarSongs from "./paginas/AdministrarSongs";
+import AdministrarSongs2 from "./paginas/AdministrarSongs2";
 import { SongsProvider } from "./context/SongsProvider";
 
 function App() {
@@ -31,6 +32,14 @@ function App() {
                   // Envuelve AdministrarSongs en SongsProvider
                   <SongsProvider>
                     <AdministrarSongs />
+                  </SongsProvider>
+                }
+              />
+              <Route
+                path=":id/songs"
+                element={
+                  <SongsProvider>
+                    <AdministrarSongs2 />
                   </SongsProvider>
                 }
               />

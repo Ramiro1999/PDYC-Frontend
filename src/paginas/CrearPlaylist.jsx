@@ -2,13 +2,12 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Alerta from "../components/Alerta";
 import clienteAxios from "../config/axios";
-import useAuth from '../hooks/useAuth'
+
 
 const CrearPlaylist = () => {
   const [name, setName] = useState('');
   const [alerta, setAlerta] = useState({});
   const navigate = useNavigate();
-  const {auth} = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +28,7 @@ const CrearPlaylist = () => {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
-          "User-Email": auth.email
+          
   
         },
       }

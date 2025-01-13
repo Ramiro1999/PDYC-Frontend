@@ -1,12 +1,19 @@
 import usePlaylists from "../hooks/usePlaylists";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { useState } from "react"; // Importar useState para manejar el estado del filtro
 
 const ListadoPlaylists = () => {
   const { playlists, eliminarPlaylist } = usePlaylists(); // removePlaylist se define en el hook para manejar la eliminación
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para el término de búsqueda
+
+  // Filtrar las playlists basadas en el término de búsqueda
+  const filteredPlaylists = playlists.filter((playlist) =>
+    playlist.name.toLowerCase().includes(searchTerm.toLowerCase()) // Filtrar por nombre de la playlist
+  );
 
   // Ordenar las playlists alfabéticamente por nombre
-  const sortedPlaylists = [...playlists].sort((a, b) => a.name.localeCompare(b.name));
+  const sortedPlaylists = [...filteredPlaylists].sort((a, b) => a.name.localeCompare(b.name));
 
   // Maneja la eliminación de una playlist
   const handleDelete = (playlistId) => {
@@ -18,6 +25,17 @@ const ListadoPlaylists = () => {
 
   return (
     <div className="p-5 h-screen bg-gray-100">
+      {/* Filtro de búsqueda */}
+      <div className="mb-5">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)} // Actualiza el término de búsqueda
+          placeholder="Buscar playlist..."
+          className="w-full p-3 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"
+        />
+      </div>
+
       <div className="overflow-auto rounded-lg shadow hidden md:block">
         <table className="w-full">
           <thead className="bg-gray-50 border-b-2 border-gray-200">
